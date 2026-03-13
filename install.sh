@@ -6,21 +6,27 @@ echo "Installing Neovim environment..."
 
 ### Detect package manager
 
-curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
-
+# 1. Detect package manager
 if command -v apt >/dev/null; then
     PKG_INSTALL="sudo apt install -y"
     sudo apt update
-    $PKG_INSTALL git curl build-essential unzip ripgrep fd-find nodejs xclip
+    $PKG_INSTALL git curl build-essential unzip ripgrep fd-find xclip
 elif command -v dnf >/dev/null; then
     PKG_INSTALL="sudo dnf install -y"
-    $PKG_INSTALL git curl gcc make unzip ripgrep fd-find nodejs xclip
+    $PKG_INSTALL git curl gcc make unzip ripgrep fd-find xclip
 elif command -v pacman >/dev/null; then
     PKG_INSTALL="sudo pacman -S --noconfirm"
-    $PKG_INSTALL git curl gcc make unzip ripgrep fd nodejs xclip
+    $PKG_INSTALL git curl gcc make unzip ripgrep fd xclip
 else
     echo "Unsupported package manager"
     exit 1
+fi
+
+# 2. Install Node.js via NodeSource (Debian/Ubuntu only)
+if command -v apt >/dev/null; then
+    echo "Installing Node.js via NodeSource..."
+    curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+    sudo apt install -y nodejs
 fi
 
 ### Install latest Neovim
