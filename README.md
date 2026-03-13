@@ -7,4 +7,4 @@ Portable Neovim configuration based on kickstart.nvim.
 Run:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/michaelw924/nvim-config/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/michaelw924/nvim-config/main/install.sh | bash
