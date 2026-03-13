@@ -47,7 +47,7 @@ sudo ln -sf /opt/nvim/bin/nvim /usr/local/bin/nvim
 ### Install tree-sitter CLI (correct version)
 
 echo "Installing tree-sitter CLI..."
-npm install -g tree-sitter-cli
+sudo npm install -g tree-sitter-cli
 
 ### Install config
 
