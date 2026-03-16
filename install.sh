@@ -49,6 +49,20 @@ sudo ln -sf /opt/nvim/bin/nvim /usr/local/bin/nvim
 echo "Installing tree-sitter CLI..."
 sudo npm install -g tree-sitter-cli --unsafe-perm=true
 
+### Install pyright for Python support
+# Try to install via npm if available, fallback to pip3 if not
+echo "Installing pyright for Python language server support..."
+
+if command -v npm >/dev/null; then
+    echo "Installing pyright via npm..."
+    sudo npm install -g pyright --unsafe-perm=true
+elif command -v pip3 >/dev/null; then
+    echo "Installing pyright via pip3..."
+    sudo pip3 install pyright
+else
+    echo "Warning: Neither npm nor pip3 found. Please install pyright manually for Python support."
+fi
+
 ### Install config
 
 CONFIG_DIR="$HOME/.config/nvim"
