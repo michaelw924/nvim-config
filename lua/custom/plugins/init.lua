@@ -19,7 +19,7 @@ return {
         ensure_installed = { 'pyright' },
       })
 
-      require('lspconfig').pyright.setup({})
+      vim.lsp.config.pyright.setup({})
     end,
   },
 }

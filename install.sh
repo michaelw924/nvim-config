@@ -10,13 +10,13 @@ echo "Installing Neovim environment..."
 if command -v apt >/dev/null; then
     PKG_INSTALL="sudo apt install -y"
     sudo apt update
-    $PKG_INSTALL git curl build-essential unzip ripgrep fd-find xclip
+    $PKG_INSTALL git curl build-essential unzip ripgrep fd-find xclip luarocks5.1
 elif command -v dnf >/dev/null; then
     PKG_INSTALL="sudo dnf install -y"
-    $PKG_INSTALL git curl gcc make unzip ripgrep fd-find xclip
+    $PKG_INSTALL git curl gcc make unzip ripgrep fd-find xclip lua-luafilesystem
 elif command -v pacman >/dev/null; then
     PKG_INSTALL="sudo pacman -S --noconfirm"
-    $PKG_INSTALL git curl gcc make unzip ripgrep fd xclip
+    $PKG_INSTALL git curl gcc make unzip ripgrep fd xclip luarocks
 else
     echo "Unsupported package manager"
     exit 1
